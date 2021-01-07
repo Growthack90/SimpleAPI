@@ -10,10 +10,12 @@ class App extends Component {
     }
   }
 
-  getQuote = () => {
+  getQuote = async () => {
     console.log("It works")
+    const body = await fetch("https://complimentr.com/api").then(r => r.json())
+    console.log(body.compliment)
     this.setState({
-      quote: "It works"
+      quote: body.compliment
     })
   }
 
